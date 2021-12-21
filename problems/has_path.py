@@ -12,12 +12,11 @@ def has_path_dfs(
     stack: Deque = deque(src)
     while len(stack) > 0:
         current: str = stack.pop()
-        for node, neighbours in graph.items():
-            if node == current:
-                for neighbour in neighbours:
-                    stack.append(neighbour)
-                    if neighbour == dst:
-                        return True
+        for neighbours in graph.get(current):
+            for neighbour in neighbours:
+                stack.append(neighbour)
+                if neighbour == dst:
+                    return True
     return False
 
 
@@ -29,10 +28,9 @@ def has_path_bfs(
     queue: Deque = deque(src)
     while len(queue) > 0:
         current: str = queue.popleft()
-        for node, neighbours in graph.items():
-            if node == current:
-                for neighbour in neighbours:
-                    queue.append(neighbour)
-                    if neighbour == dst:
-                        return True
+        for neighbours in graph.get(current):
+            for neighbour in neighbours:
+                queue.append(neighbour)
+                if neighbour == dst:
+                    return True
     return False
