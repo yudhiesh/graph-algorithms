@@ -1,11 +1,11 @@
 from collections import deque
 from typing import Deque
 
-from algorithms.helper import GRAPH
+from algorithms.helper import Graph
 
 
 def has_path_dfs(
-    graph: GRAPH,
+    graph: Graph,
     src: str,
     dst: str,
 ) -> bool:
@@ -21,7 +21,7 @@ def has_path_dfs(
 
 
 def has_path_bfs(
-    graph: GRAPH,
+    graph: Graph,
     src: str,
     dst: str,
 ) -> bool:

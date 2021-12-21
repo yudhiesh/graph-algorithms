@@ -1,8 +1,8 @@
-from algorithms.helper import GRAPH
+from algorithms.helper import Graph
 from problems.has_path import has_path_bfs, has_path_dfs
 import pytest
 
-graph: GRAPH = {
+graph: Graph = {
     "f": ["g", "i"],
     "g": ["h"],
     "h": [],
@@ -11,7 +11,7 @@ graph: GRAPH = {
     "k": [],
 }
 
-graph2: GRAPH = {
+graph2: Graph = {
     "v": ["x", "w"],
     "w": [],
     "x": [],
