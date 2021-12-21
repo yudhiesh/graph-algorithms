@@ -1,11 +1,11 @@
 from collections import deque
 from typing import Deque
 
-from algorithms.helper import GRAPH
+from algorithms.helper import Graph
 
 
 def depth_first_search(
-    graph: GRAPH,
+    graph: Graph,
     source: str,
 ) -> str:
     stack: Deque[str] = deque(source)
@@ -20,7 +20,7 @@ def depth_first_search(
 
 
 def depth_first_search_recursive(
-    graph: GRAPH,
+    graph: Graph,
     source: str,
     path: str,
 ) -> str:

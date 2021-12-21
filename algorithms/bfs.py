@@ -1,11 +1,11 @@
 from collections import deque
 from typing import Deque
 
-from algorithms.helper import GRAPH
+from algorithms.helper import Graph
 
 
 def breadth_first_search(
-    graph: GRAPH,
+    graph: Graph,
     source: str,
 ) -> str:
     queue: Deque = deque(source)
