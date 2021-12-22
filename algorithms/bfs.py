@@ -8,7 +8,7 @@ def breadth_first_search(
     graph: Graph,
     source: str,
 ) -> str:
-    queue: Deque = deque(source)
+    queue: Deque[str] = deque(source)
     path: str = ""
     while len(queue) > 0:
         current: str = queue.popleft()

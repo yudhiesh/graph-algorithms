@@ -1,7 +1,7 @@
 from collections import deque
-from typing import Deque, List
+from typing import Deque, List, Optional
 
-from algorithms.helper import Graph, graph
+from algorithms.helper import Graph
 
 
 def depth_first_search(
@@ -22,27 +22,17 @@ def depth_first_search(
 def depth_first_search_recursive(
     graph: Graph,
     source: str,
-) -> None:
-    path: List[str] = []
-    dfs(
-        graph=graph,
-        source=source,
-        path=path,
-    )
-    return "".join(path)
-
-
-def dfs(
-    graph: Graph,
-    source: str,
-    path: List[str],
+    path: Optional[List[str]] = None,
 ):
+    if path == None:
+        path = []
     if source in path:
         return False
     path.append(source)
     for neighbour in graph.get(source):
-        dfs(
+        depth_first_search_recursive(
             graph=graph,
             source=neighbour,
             path=path,
         )
+    return "".join(path)

@@ -23,7 +23,7 @@ def explore(
 ) -> int:
     size: int = 0
     if current in visited:
-        return 0
+        return size
     visited.add(current)
     size = 1
     for neighbour in graph.get(current):

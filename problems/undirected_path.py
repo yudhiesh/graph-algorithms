@@ -1,5 +1,4 @@
-from collections import defaultdict, deque
-from typing import Deque
+from collections import defaultdict
 from algorithms.helper import Edges, Graph, Visited
 
 
@@ -19,7 +18,12 @@ def has_undirected_path_dfs(
 ) -> bool:
     visited: Visited = set()
     graph: Graph = edges_to_graph(edges=edges)
-    return has_path(graph=graph, visited=visited, src=src, dst=dst)
+    return has_path(
+        graph=graph,
+        visited=visited,
+        src=src,
+        dst=dst,
+    )
 
 
 def has_path(

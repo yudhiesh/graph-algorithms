@@ -1,10 +1,16 @@
 from collections import defaultdict
-from typing import Any, DefaultDict, List, Optional, Set, Tuple, Union, Dict
+from typing import Any, DefaultDict, List, Optional, Set, Tuple, Union, Dict, NamedTuple
 
 
 Graph = Union[DefaultDict[Any, List[Optional[Any]]], Dict]
 Edges = List[Tuple[str, str]]
 Visited = Set[str]
+
+
+class Path(NamedTuple):
+    node: str
+    distance: int
+
 
 graph: Graph = defaultdict(
     list,
@@ -44,6 +50,26 @@ edges3: Edges = [
     ("q", "s"),
     ("q", "u"),
     ("q", "t"),
+]
+
+edges4: Edges = [
+    ("a", "c"),
+    ("a", "b"),
+    ("c", "b"),
+    ("c", "d"),
+    ("b", "d"),
+    ("e", "d"),
+    ("g", "f"),
+]
+
+edges5: Edges = [
+    ("a", "c"),
+    ("a", "b"),
+    ("c", "b"),
+    ("c", "d"),
+    ("b", "d"),
+    ("e", "d"),
+    ("g", "f"),
 ]
 
 graph_from_edges: Graph = defaultdict(
