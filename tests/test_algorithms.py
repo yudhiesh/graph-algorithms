@@ -19,7 +19,10 @@ def test_breadth_first_search(
     source,
     expected,
 ):
-    results = breadth_first_search(graph=graph, source=source)
+    results = breadth_first_search(
+        graph=graph,
+        source=source,
+    )
     assert results == expected
 
 
@@ -38,5 +41,30 @@ def test_depth_first_search(
     source,
     expected,
 ):
-    results = depth_first_search(graph=graph, source=source)
+    results = depth_first_search(
+        graph=graph,
+        source=source,
+    )
+    assert results == expected
+
+
+@pytest.mark.parametrize(
+    "graph,source,expected",
+    [
+        (
+            graph,
+            "a",
+            "acebdf",
+        )
+    ],
+)
+def test_depth_first_search_recursive(
+    graph,
+    source,
+    expected,
+):
+    results = depth_first_search_recursive(
+        graph=graph,
+        source=source,
+    )
     assert results == expected
