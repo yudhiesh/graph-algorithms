@@ -1,9 +1,9 @@
 from collections import defaultdict
-from typing import DefaultDict, List, Optional, Set
+from typing import DefaultDict, List, Optional, Set, Tuple
 
 
 Graph = DefaultDict[str, List[Optional[str]]]
-Edges = List[List[str]]
+Edges = List[Tuple[str, str]]
 Visited = Set[str]
 
 graph: Graph = defaultdict(
@@ -19,31 +19,31 @@ graph: Graph = defaultdict(
 )
 
 edges: Edges = [
-    ["i", "j"],
-    ["k", "i"],
-    ["m", "k"],
-    ["k", "l"],
-    ["o", "n"],
+    ("i", "j"),
+    ("k", "i"),
+    ("m", "k"),
+    ("k", "l"),
+    ("o", "n"),
 ]
 
 edges2: Edges = [
-    ["b", "a"],
-    ["c", "a"],
-    ["b", "c"],
-    ["q", "r"],
-    ["q", "s"],
-    ["q", "u"],
-    ["q", "t"],
+    ("b", "a"),
+    ("c", "a"),
+    ("b", "c"),
+    ("q", "r"),
+    ("q", "s"),
+    ("q", "u"),
+    ("q", "t"),
 ]
 
 edges3: Edges = [
-    ["b", "a"],
-    ["c", "a"],
-    ["b", "c"],
-    ["q", "r"],
-    ["q", "s"],
-    ["q", "u"],
-    ["q", "t"],
+    ("b", "a"),
+    ("c", "a"),
+    ("b", "c"),
+    ("q", "r"),
+    ("q", "s"),
+    ("q", "u"),
+    ("q", "t"),
 ]
 
 graph_from_edges: Graph = defaultdict(
