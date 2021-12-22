@@ -1,8 +1,8 @@
 from collections import defaultdict
-from typing import DefaultDict, List, Optional, Set, Tuple
+from typing import Any, DefaultDict, List, Optional, Set, Tuple
 
 
-Graph = DefaultDict[str, List[Optional[str]]]
+Graph = DefaultDict[Any, List[Optional[Any]]]
 Edges = List[Tuple[str, str]]
 Visited = Set[str]
 
@@ -56,5 +56,18 @@ graph_from_edges: Graph = defaultdict(
         "l": ["k"],
         "o": ["n"],
         "n": ["o"],
+    },
+)
+
+graph: Graph = defaultdict(
+    list,
+    {
+        0: [8, 1, 5],
+        1: [0],
+        5: [0, 8],
+        8: [0, 5],
+        2: [3, 4],
+        3: [2, 4],
+        4: [3, 2],
     },
 )
