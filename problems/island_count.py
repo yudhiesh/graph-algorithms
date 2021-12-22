@@ -1,4 +1,4 @@
-from algorithms.helper import Grid, Position, VisitedGrid, grid
+from algorithms.helper import Grid, Position, VisitedGrid
 
 
 def get_island_count(grid: Grid) -> int:
@@ -21,8 +21,12 @@ def explore(
     grid: Grid,
     visited: VisitedGrid,
 ) -> bool:
-    row_in_bounds: bool = 0 <= position.row and position.row < len(grid)
-    column_in_bounds: bool = 0 <= position.column and position.column < len(grid[0])
+    row_in_bounds: bool = 0 <= position.row and position.row < len(
+        grid,
+    )
+    column_in_bounds: bool = 0 <= position.column and position.column < len(
+        grid[0],
+    )
     # Base case 1: handle out of bounds errors
     if not row_in_bounds or not column_in_bounds:
         return False

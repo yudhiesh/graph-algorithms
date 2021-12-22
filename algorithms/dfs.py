@@ -23,7 +23,7 @@ def depth_first_search_recursive(
     source: str,
     path: Optional[List[str]] = None,
 ):
-    if path == None:
+    if path is None:
         path = []
     if source in path:
         return False
