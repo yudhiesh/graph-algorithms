@@ -1,9 +1,9 @@
 from collections import defaultdict
-from typing import DefaultDict, List, Optional, Set
+from typing import Any, DefaultDict, List, Optional, Set, Tuple, Union, Dict
 
 
-Graph = DefaultDict[str, List[Optional[str]]]
-Edges = List[List[str]]
+Graph = Union[DefaultDict[Any, List[Optional[Any]]], Dict]
+Edges = List[Tuple[str, str]]
 Visited = Set[str]
 
 graph: Graph = defaultdict(
@@ -19,31 +19,31 @@ graph: Graph = defaultdict(
 )
 
 edges: Edges = [
-    ["i", "j"],
-    ["k", "i"],
-    ["m", "k"],
-    ["k", "l"],
-    ["o", "n"],
+    ("i", "j"),
+    ("k", "i"),
+    ("m", "k"),
+    ("k", "l"),
+    ("o", "n"),
 ]
 
 edges2: Edges = [
-    ["b", "a"],
-    ["c", "a"],
-    ["b", "c"],
-    ["q", "r"],
-    ["q", "s"],
-    ["q", "u"],
-    ["q", "t"],
+    ("b", "a"),
+    ("c", "a"),
+    ("b", "c"),
+    ("q", "r"),
+    ("q", "s"),
+    ("q", "u"),
+    ("q", "t"),
 ]
 
 edges3: Edges = [
-    ["b", "a"],
-    ["c", "a"],
-    ["b", "c"],
-    ["q", "r"],
-    ["q", "s"],
-    ["q", "u"],
-    ["q", "t"],
+    ("b", "a"),
+    ("c", "a"),
+    ("b", "c"),
+    ("q", "r"),
+    ("q", "s"),
+    ("q", "u"),
+    ("q", "t"),
 ]
 
 graph_from_edges: Graph = defaultdict(
@@ -58,3 +58,30 @@ graph_from_edges: Graph = defaultdict(
         "n": ["o"],
     },
 )
+
+graph_ccc: Graph = defaultdict(  # -> 2
+    list,
+    {
+        0: [8, 1, 5],
+        1: [0],
+        5: [0, 8],
+        8: [0, 5],
+        2: [3, 4],
+        3: [2, 4],
+        4: [3, 2],
+    },
+)
+
+graph_ccc2: Graph = defaultdict(  # -> 1
+    list,
+    {
+        1: [2],
+        2: [1, 8],
+        6: [7],
+        9: [8],
+        7: [6, 8],
+        8: [9, 7, 2],
+    },
+)
+
+graph_cc3: Graph = {}  # -> 4
