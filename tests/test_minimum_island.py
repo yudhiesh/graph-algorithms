@@ -1,6 +1,6 @@
 import pytest
 from algorithms.helper import grid, grid2, grid3, grid5
-from algorithms.minimum_island import get_minimum_island
+from problems.minimum_island import get_minimum_island
 
 
 @pytest.mark.parametrize(
@@ -24,6 +24,6 @@ from algorithms.minimum_island import get_minimum_island
         ),
     ],
 )
-def test_get_island_count(grid, expected):
+def test_get_mininum_island(grid, expected):
     results = get_minimum_island(grid=grid)
     assert results == expected
