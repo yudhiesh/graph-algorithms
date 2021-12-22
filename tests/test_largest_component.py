@@ -1,4 +1,4 @@
-from problems.connected_components_count import get_connected_components_count
+from problems.largest_component import get_largest_component
 from algorithms.helper import graph_ccc, graph_ccc2, graph_empty
 import pytest
 
@@ -8,11 +8,11 @@ import pytest
     [
         (
             graph_ccc,
-            2,
+            4,
         ),
         (
             graph_ccc2,
-            1,
+            6,
         ),
         (
             graph_empty,
@@ -20,6 +20,6 @@ import pytest
         ),
     ],
 )
-def test_get_connected_components_count(graph, expected):
-    results = get_connected_components_count(graph=graph)
+def test_get_largest_component(graph, expected):
+    results = get_largest_component(graph=graph)
     assert results == expected

@@ -1,34 +1,35 @@
 from algorithms.helper import Graph, Visited
 
 
-def get_connected_components_count(graph: Graph) -> int:
+def get_largest_component(graph: Graph) -> int:
     if not graph:
         return 0
+    largest: int = 0
     visited: Visited = set()
-    count: int = 0
     for node in graph.keys():
-        if explore(
+        size = explore(
             graph=graph,
-            current=node,
             visited=visited,
-        ):
-            count += 1
-    return count
+            current=node,
+        )
+        largest = max(size, largest)
+    return largest
 
 
 def explore(
     graph: Graph,
-    current: int,
     visited: Visited,
-) -> bool:
+    current: int,
+) -> int:
+    size: int = 0
     if current in visited:
-        return False
-
+        return 0
     visited.add(current)
+    size = 1
     for neighbour in graph.get(current):
-        explore(
+        size += explore(
             graph=graph,
-            current=neighbour,
             visited=visited,
+            current=neighbour,
         )
-    return True
+    return size

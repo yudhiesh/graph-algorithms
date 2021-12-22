@@ -18,16 +18,30 @@ def has_undirected_path_dfs(
     dst: str,
 ) -> bool:
     visited: Visited = set()
-    stack: Deque = deque(src)
     graph: Graph = edges_to_graph(edges=edges)
-    while len(stack) > 0:
-        current: str = stack.pop()
-        if current in visited:
-            return False
-        visited.add(current)
-        for neighbours in graph.get(current):
-            for neighbour in neighbours:
-                stack.append(neighbour)
-                if neighbour == dst:
-                    return True
+    return has_path(graph=graph, visited=visited, src=src, dst=dst)
+
+
+def has_path(
+    graph: Graph,
+    visited: Visited,
+    src: str,
+    dst: str,
+) -> bool:
+    if src == dst:
+        return True
+
+    if src in visited:
+        return False
+
+    visited.add(src)
+
+    for neighbour in graph.get(src):
+        if has_path(
+            graph=graph,
+            visited=visited,
+            src=neighbour,
+            dst=dst,
+        ):
+            return True
     return False

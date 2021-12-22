@@ -59,7 +59,7 @@ graph_from_edges: Graph = defaultdict(
     },
 )
 
-graph_ccc: Graph = defaultdict(  # -> 2
+graph_ccc: Graph = defaultdict(
     list,
     {
         0: [8, 1, 5],
@@ -72,7 +72,7 @@ graph_ccc: Graph = defaultdict(  # -> 2
     },
 )
 
-graph_ccc2: Graph = defaultdict(  # -> 1
+graph_ccc2: Graph = defaultdict(
     list,
     {
         1: [2],
@@ -84,4 +84,4 @@ graph_ccc2: Graph = defaultdict(  # -> 1
     },
 )
 
-graph_cc3: Graph = {}  # -> 4
+graph_empty: Graph = {}
