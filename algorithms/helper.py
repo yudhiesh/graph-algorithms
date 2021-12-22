@@ -2,14 +2,21 @@ from collections import defaultdict
 from typing import Any, DefaultDict, List, Optional, Set, Tuple, Union, Dict, NamedTuple
 
 
-Graph = Union[DefaultDict[Any, List[Optional[Any]]], Dict]
-Edges = List[Tuple[str, str]]
-Visited = Set[str]
-
-
 class Path(NamedTuple):
     node: str
     distance: int
+
+
+class Position(NamedTuple):
+    row: int
+    column: int
+
+
+Graph = Union[DefaultDict[Any, List[Optional[Any]]], Dict]
+Edges = List[Tuple[str, str]]
+Visited = Set[str]
+VisitedGrid = Set[Position]
+Grid = List[List[str]]
 
 
 graph: Graph = defaultdict(
@@ -111,3 +118,32 @@ graph_ccc2: Graph = defaultdict(
 )
 
 graph_empty: Graph = {}
+
+grid: Grid = [
+    ["W", "L", "W", "W", "W"],
+    ["W", "L", "W", "W", "W"],
+    ["W", "W", "W", "L", "W"],
+    ["W", "W", "L", "L", "W"],
+    ["L", "W", "W", "L", "L"],
+    ["L", "L", "W", "W", "W"],
+]
+
+grid2: Grid = [
+    ["L", "W", "W", "L", "W"],
+    ["L", "W", "W", "L", "L"],
+    ["W", "L", "W", "L", "W"],
+    ["W", "W", "W", "W", "W"],
+    ["W", "W", "L", "L", "L"],
+]
+
+grid3: Grid = [
+    ["L", "L", "L"],
+    ["L", "L", "L"],
+    ["L", "L", "L"],
+]
+
+grid4: Grid = [
+    ["W", "W"],
+    ["W", "W"],
+    ["W", "W"],
+]
