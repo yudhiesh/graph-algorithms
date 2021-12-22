@@ -70,7 +70,3 @@ def explore(
         visited=visited,
     )
     return True
-
-
-if __name__ == "__main__":
-    get_island_count(grid=grid)
