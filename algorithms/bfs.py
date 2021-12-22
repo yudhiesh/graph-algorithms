@@ -13,7 +13,6 @@ def breadth_first_search(
     while len(queue) > 0:
         current: str = queue.popleft()
         path += current
-        for neighbours in graph.get(current):
-            for neighbour in neighbours:
-                queue.append(neighbour)
+        for neighbour in graph.get(current):
+            queue.append(neighbour)
     return path

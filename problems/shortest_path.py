@@ -1,13 +1,13 @@
 from collections import defaultdict, deque
-from typing import Deque, Union
-from algorithms.helper import Edges, Graph, Path, Visited, edges4
+from typing import Deque
+from algorithms.helper import Edges, Graph, Path, Visited
 
 
 def get_shortest_path(
     edges: Edges,
     src: str,
     dst: str,
-) -> Union[float, int]:
+) -> int:
     source_path = Path(
         node=src,
         distance=0,

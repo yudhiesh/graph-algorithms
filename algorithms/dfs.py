@@ -13,9 +13,8 @@ def depth_first_search(
     while len(stack) > 0:
         current: str = stack.pop()
         path += current
-        for neighbours in graph.get(current):
-            for neighbour in neighbours:
-                stack.append(neighbour)
+        for neighbour in graph.get(current):
+            stack.append(neighbour)
     return path
 
 
