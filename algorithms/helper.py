@@ -2,23 +2,38 @@ from collections import defaultdict
 from typing import Any, DefaultDict, List, Optional, Set, Tuple, Union, Dict, NamedTuple
 
 
+# Classes of data
 class Path(NamedTuple):
+    """
+    Path that contains the name of the node and the distance from the source
+    node.
+    Used in bfs for shortest_path.py
+    """
+
     node: str
     distance: int
 
 
 class Position(NamedTuple):
+    """
+    Position on a grid
+    """
+
     row: int
     column: int
 
 
-Graph = Union[DefaultDict[Any, List[Optional[Any]]], Dict]
+# Type Definitions
+Graph = Union[
+    DefaultDict[Any, List[Optional[Any]]],
+    Dict,
+]
 Edges = List[Tuple[str, str]]
-Visited = Set[str]
-VisitedGrid = Set[Position]
+Visited = Set[Any]
 Grid = List[List[str]]
 
 
+# Example data used in tests
 graph: Graph = defaultdict(
     list,
     {

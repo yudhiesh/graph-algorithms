@@ -1,9 +1,9 @@
-from algorithms.helper import Grid, Position, VisitedGrid
+from algorithms.helper import Grid, Position, Visited
 
 
 def get_island_count(grid: Grid) -> int:
     count: int = 0
-    visited: VisitedGrid = set()
+    visited: Visited = set()
     for i in range(len(grid)):
         for j in range(len(grid[0])):
             if explore(
@@ -19,7 +19,7 @@ def get_island_count(grid: Grid) -> int:
 def explore(
     position: Position,
     grid: Grid,
-    visited: VisitedGrid,
+    visited: Visited,
 ) -> bool:
     row_in_bounds: bool = 0 <= position.row and position.row < len(
         grid,

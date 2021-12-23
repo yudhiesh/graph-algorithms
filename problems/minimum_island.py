@@ -1,9 +1,9 @@
-from algorithms.helper import Grid, Position, VisitedGrid
+from algorithms.helper import Grid, Position, Visited
 
 
 def get_minimum_island(grid: Grid) -> float:
     size: float = float("inf")
-    visited: VisitedGrid = set()
+    visited: Visited = set()
     for i in range(len(grid)):
         for j in range(len(grid[0])):
             current_position = Position(
@@ -24,7 +24,7 @@ def get_minimum_island(grid: Grid) -> float:
 def explore(
     grid: Grid,
     position: Position,
-    visited: VisitedGrid,
+    visited: Visited,
 ) -> int:
     size: int = 0
     row_in_bounds = 0 <= position.row and position.row < len(grid)
